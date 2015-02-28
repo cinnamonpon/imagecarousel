@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body{
+				background-color: #fce5e3;
+			}
+			header{
+				position: fixed;
+				width: 100%;
+				text-align: center;
+				font-size: 72px;
+				line-height: 108px;
+				height: 108px;
+				background-color: #fcf1e3;
+				color: #4e3b36;
+				font-family: Catalogue;
+			}
+
+			footer{
+				position: fixed;
+				width: 100%;
+				text-align: center;
+				bottom: 10px;
+				height: 108px;
+				background-color: #fcf1e3;
+				color: #4e3b36;
+				font-family: Catalogue;
+			}		
+			img{
+				position: absolute;
+				margin: 10px;
+				width: 325px;
+				height: 300px;
+				visibility: hidden;
+			}
+
+			button{
+				padding: 5px;
+				border: 0;
+				background-color: #fce5e3;
+				color: #4e3b36;
+				font-weight: bold;
+				font-size: 20px;
+			}
+			.next{
+				margin-top: 140px;
+				margin-left: 350px;
+			}
+			.active{
+				visibility: visible;
+			}
+
+			#panel{
+				width: 100%;
+				display: inline-block;
+				text-align: center;
+				margin: auto;
+			}
+
+			#slideshow{
+				width: 100%;
+				padding-top: 120px;
+				padding-bottom: 300px;
+			}
+
+			#area{
+				width: 80%;
+			    margin: 0 auto;
+			    margin-top: -140px;
+			    margin-bottom: 140px;
+				background-color: #fcf1e3;
+				color: #4e3b36;
+				font-family: Catalogue;
+				font-size: 18px;
+				text-align: center;
+			}
+		</style>
+
+		<script src="jquery-1.11.2.js"></script>
+		<script>
+			 $(document).ready(function() {
+                $(".next").click(function() {
+                    var $active = $('div#slideshow IMG.active');
+                    var $next;
+                    if($active.next().is('img')){
+	                    $next = $active.next();
+	                    $next.addClass('active');
+	                    $active.removeClass('active');
+	                }
+	                 else{
+	                	for(var i=0; i<8; i++){
+	                		$active = $('div#slideshow IMG.active');
+	                		$next = $active.prev();
+	                		$next.addClass('active');
+	                		$active.removeClass('active');
+
+	                	}
+	                }
+                });
+
+                $(".prev").click(function() {
+                    var $active = $('div#slideshow IMG.active');
+                    var $prev;
+                    if($active.prev().is('img')){
+	                    $prev = $active.prev();
+	                    $prev.addClass('active');
+	                	$active.removeClass('active');
+	                    
+	                }
+	                else{
+	                	for(var i=0; i<8; i++){
+	                		$active = $('div#slideshow IMG.active');
+	                		$prev = $active.next();
+	                		$prev.addClass('active');
+	                		$active.removeClass('active');
+
+	                	}
+	                }
+	                
+                });
+            });
+        </script>
+	</head>
+
+	<body>
+		<header>My Pusheen Catalogue</header>
+
+		<div id="panel">			
+			<div id="slideshow">
+				<button class="prev"><</button>
+				<img src="images/eatnoodles.gif" class="active"/>
+				<img src="images/eatcheetos.gif" />
+				<img src="images/eatpie.gif" />
+				<img src="images/normal.gif" />
+				<img src="images/play.jpg" />
+				<img src="images/cleanme.gif" />
+				<img src="images/scooter.gif" />
+				<img src="images/hungry.gif" />
+				<img src="images/sad.gif" />
+				<button class="next">></button>
+			</div>
+		</div>
+		<div id="area"> 
+			- - - About Pusheen the cat. - - -
+			<br>Breed: Domestic shorthair 
+			<br>Coat Type: Grey Tabby
+			<br>Age: All 9 lives left
+			<br>Sex: Female
+			<br>Pusheen the cat is an animated web comic series produced by Pusheen Corp.
+			<br>To contact Pusheen the cat directly, call out to her from your heart. She'll hear you.
+			<br><br>
+			Some random text now...
+			<br>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros odio, bibendum vel pharetra at, blandit placerat diam. In ultricies lacus convallis eros interdum, non fermentum orci egestas. Donec turpis ante, tristique quis laoreet a, pretium sed ante. Nam pharetra nisi ut eros dignissim, ut volutpat velit semper. Nunc mollis eros quis lorem hendrerit, quis tristique ex fringilla. Mauris pulvinar enim eu est bibendum fermentum. Suspendisse a turpis magna. Proin id convallis nisi. Morbi blandit, massa tincidunt pulvinar hendrerit, elit tellus pellentesque sapien, nec maximus sem leo vitae risus.</p>
+
+			<p>Proin condimentum blandit lacus, at tempor dolor volutpat a. In hac habitasse platea dictumst. Ut sodales metus nec libero laoreet varius. Donec vehicula neque egestas risus suscipit consequat. Fusce ut ultricies ante. Nunc imperdiet metus a neque auctor, eget pellentesque est rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque ultrices, magna sit amet aliquam ultrices, erat dolor ultrices quam, eget accumsan quam eros vitae justo. Nullam sit amet viverra erat. Aenean tincidunt varius lacus non dictum. Aenean vestibulum magna ut turpis tempus elementum. Cras a libero turpis. Nullam sollicitudin lorem sit amet enim ultricies, a finibus eros commodo. Vivamus purus augue, auctor sit amet lacus maximus, ultricies varius odio. Maecenas congue imperdiet lacinia. Curabitur nec euismod est, id pulvinar turpis.</p>
+
+			<p>Etiam tempor at odio eu pretium. Fusce porta nibh tellus, at eleifend erat gravida non. Cras vehicula tempor odio vel interdum. Integer sagittis, ligula quis semper tristique, mi mauris pellentesque erat, id lobortis magna urna et lacus. Pellentesque vel ultricies neque. Quisque et auctor odio. Donec sed tortor pulvinar, semper odio vitae, sodales mauris. Suspendisse malesuada tincidunt hendrerit. Fusce fermentum odio nunc, in blandit augue malesuada et. Maecenas id malesuada diam. Maecenas interdum, tortor et mollis commodo, odio mauris auctor dui, mollis imperdiet erat metus eget nunc. Aliquam sed dapibus mauris. Fusce eu nisl blandit, pharetra felis id, scelerisque dui.</p>
+
+			<p>In hac habitasse platea dictumst. Curabitur in suscipit mi. Pellentesque venenatis ac augue consequat cursus. Praesent et metus ut sem scelerisque commodo rhoncus ac metus. Nulla finibus, eros at elementum vehicula, orci est bibendum ex, sit amet volutpat enim orci vel ante. Etiam ut erat sit amet quam euismod dictum in at turpis. Quisque condimentum et mi vel mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque aliquet lectus vitae libero hendrerit, vitae placerat risus aliquet. Proin bibendum mattis nulla. Pellentesque ut massa blandit, venenatis quam id, auctor nulla. In tincidunt lectus non erat auctor, non tincidunt urna maximus. Morbi elementum, est vel commodo cursus, turpis enim lacinia nulla, vel aliquet dolor ipsum vitae ante.</p>
+
+			<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent interdum augue sit amet suscipit facilisis. Aenean id ipsum sit amet massa hendrerit vestibulum. Integer ut arcu id turpis interdum lacinia id vitae libero. Duis sit amet elit vel eros ornare lobortis quis sed neque. Suspendisse aliquet lectus ac lorem congue mattis. Aliquam quis tincidunt dolor, nec varius massa. Aenean rhoncus ipsum quis ante suscipit, in euismod lorem gravida. Donec ac leo eget purus scelerisque suscipit at ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris id ultrices nunc.</p>
+		</div>
+		<footer><br>For PROFSWD S18 Term 3 AY 2014-2015 <br> (c) SAN PASCUAL, Joyce <br>Text from pusheen.com</footer>
+	</body>
+</html>
